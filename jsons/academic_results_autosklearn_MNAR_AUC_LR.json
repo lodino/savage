@@ -1,0 +1,699 @@
+{
+    "AUC": {
+        "means": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+        ],
+        "stds": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "medians": [
+            0.5
+        ],
+        "q1": [
+            0.5
+        ],
+        "q3": [
+            0.5
+        ],
+        "budgets": [
+            0,
+            6121,
+            12242,
+            18364,
+            24485,
+            30607
+        ],
+        "values": [
+            [
+                0.5,
+                0.5,
+                0.5,
+                0.5,
+                0.5
+            ]
+        ]
+    },
+    "SPD": {
+        "means": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "stds": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "medians": [
+            0.0
+        ],
+        "q1": [
+            0.0
+        ],
+        "q3": [
+            0.0
+        ],
+        "budgets": [
+            0,
+            6121,
+            12242,
+            18364,
+            24485,
+            30607
+        ],
+        "values": [
+            [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        ]
+    },
+    "EO": {
+        "means": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "stds": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "medians": [
+            0.0
+        ],
+        "q1": [
+            0.0
+        ],
+        "q3": [
+            0.0
+        ],
+        "budgets": [
+            0,
+            6121,
+            12242,
+            18364,
+            24485,
+            30607
+        ],
+        "values": [
+            [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        ]
+    },
+    "ACC": {
+        "means": [
+            0.5256795608991114,
+            0.5256795608991114,
+            0.5256795608991114,
+            0.5256795608991114,
+            0.5256795608991114,
+            0.5256795608991114
+        ],
+        "stds": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "medians": [
+            0.5256795608991114
+        ],
+        "q1": [
+            0.5256795608991114
+        ],
+        "q3": [
+            0.5256795608991114
+        ],
+        "budgets": [
+            0,
+            6121,
+            12242,
+            18364,
+            24485,
+            30607
+        ],
+        "values": [
+            [
+                0.5256795608991114,
+                0.5256795608991114,
+                0.5256795608991114,
+                0.5256795608991114,
+                0.5256795608991114
+            ]
+        ]
+    },
+    "F1": {
+        "means": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "stds": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "medians": [
+            0.0
+        ],
+        "q1": [
+            0.0
+        ],
+        "q3": [
+            0.0
+        ],
+        "budgets": [
+            0,
+            6121,
+            12242,
+            18364,
+            24485,
+            30607
+        ],
+        "values": [
+            [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ]
+        ]
+    },
+    "col_list": [
+        [
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ]
+        ],
+        [
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ],
+            [
+                "Previous qualification",
+                "Educational special needs",
+                "Y"
+            ]
+        ],
+        [
+            [
+                "Application mode",
+                "Curricular units 1st sem (evaluations)",
+                "Y"
+            ],
+            [
+                "Application mode",
+                "Curricular units 1st sem (evaluations)",
+                "Y"
+            ],
+            [
+                "Application mode",
+                "Curricular units 1st sem (evaluations)",
+                "Y"
+            ],
+            [
+                "Application mode",
+                "Curricular units 1st sem (evaluations)",
+                "Y"
+            ],
+            [
+                "Application mode",
+                "Curricular units 1st sem (evaluations)",
+                "Y"
+            ]
+        ],
+        [
+            [
+                "Father's qualification",
+                "Tuition fees up to date",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Tuition fees up to date",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Tuition fees up to date",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Tuition fees up to date",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Tuition fees up to date",
+                "Y"
+            ]
+        ],
+        [
+            [
+                "Father's qualification",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Y"
+            ]
+        ],
+        [
+            [
+                "Father's qualification",
+                "Curricular units 1st sem (without evaluations)",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Curricular units 1st sem (without evaluations)",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Curricular units 1st sem (without evaluations)",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Curricular units 1st sem (without evaluations)",
+                "Y"
+            ],
+            [
+                "Father's qualification",
+                "Curricular units 1st sem (without evaluations)",
+                "Y"
+            ]
+        ]
+    ],
+    "lb_list": [
+        [
+            [
+                18,
+                0,
+                1
+            ],
+            [
+                18,
+                1,
+                1
+            ],
+            [
+                6,
+                0,
+                1
+            ],
+            [
+                5,
+                0,
+                0
+            ],
+            [
+                34,
+                0,
+                0
+            ]
+        ],
+        [
+            [
+                19,
+                1,
+                1
+            ],
+            [
+                10,
+                0,
+                1
+            ],
+            [
+                17,
+                0,
+                0
+            ],
+            [
+                37,
+                1,
+                0
+            ],
+            [
+                2,
+                0,
+                0
+            ]
+        ],
+        [
+            [
+                4,
+                27,
+                0
+            ],
+            [
+                19,
+                0,
+                0
+            ],
+            [
+                39,
+                32,
+                1
+            ],
+            [
+                6,
+                22,
+                0
+            ],
+            [
+                42,
+                11,
+                0
+            ]
+        ],
+        [
+            [
+                17,
+                1,
+                1
+            ],
+            [
+                14,
+                1,
+                1
+            ],
+            [
+                42,
+                1,
+                0
+            ],
+            [
+                12,
+                1,
+                1
+            ],
+            [
+                20,
+                0,
+                1
+            ]
+        ],
+        [
+            [
+                17,
+                1
+            ],
+            [
+                30,
+                1
+            ],
+            [
+                37,
+                1
+            ],
+            [
+                3,
+                0
+            ],
+            [
+                38,
+                1
+            ]
+        ],
+        [
+            [
+                37,
+                2,
+                0
+            ],
+            [
+                1,
+                6,
+                1
+            ],
+            [
+                18,
+                0,
+                0
+            ],
+            [
+                27,
+                4,
+                1
+            ],
+            [
+                22,
+                0,
+                0
+            ]
+        ]
+    ],
+    "ub_list": [
+        [
+            [
+                27,
+                1,
+                1
+            ],
+            [
+                40,
+                1,
+                1
+            ],
+            [
+                13,
+                1,
+                1
+            ],
+            [
+                28,
+                1,
+                0
+            ],
+            [
+                40,
+                1,
+                1
+            ]
+        ],
+        [
+            [
+                40,
+                1,
+                1
+            ],
+            [
+                43,
+                1,
+                1
+            ],
+            [
+                38,
+                1,
+                1
+            ],
+            [
+                41,
+                1,
+                1
+            ],
+            [
+                14,
+                0,
+                1
+            ]
+        ],
+        [
+            [
+                47,
+                40,
+                1
+            ],
+            [
+                40,
+                45,
+                0
+            ],
+            [
+                51,
+                41,
+                1
+            ],
+            [
+                16,
+                27,
+                1
+            ],
+            [
+                49,
+                37,
+                1
+            ]
+        ],
+        [
+            [
+                43,
+                1,
+                1
+            ],
+            [
+                16,
+                1,
+                1
+            ],
+            [
+                44,
+                1,
+                1
+            ],
+            [
+                35,
+                1,
+                1
+            ],
+            [
+                35,
+                1,
+                1
+            ]
+        ],
+        [
+            [
+                43,
+                1
+            ],
+            [
+                40,
+                1
+            ],
+            [
+                37,
+                1
+            ],
+            [
+                9,
+                1
+            ],
+            [
+                41,
+                1
+            ]
+        ],
+        [
+            [
+                38,
+                4,
+                1
+            ],
+            [
+                24,
+                10,
+                1
+            ],
+            [
+                24,
+                12,
+                1
+            ],
+            [
+                39,
+                8,
+                1
+            ],
+            [
+                35,
+                11,
+                1
+            ]
+        ]
+    ]
+}
