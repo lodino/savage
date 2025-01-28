@@ -1,0 +1,8 @@
+# ignore python cache files
+__pycache__/
+# ignore jupyter notebook checkpoints
+.ipynb_checkpoints/
+# ignore pycharm project files
+.idea/
+
+.DS_Store
