@@ -898,6 +898,8 @@ def process_heart(df):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     return X_train, X_test, y_train, y_test
+
+
 def process_credit_card(df):
 
     df = df.drop(columns=['ID'])
@@ -966,7 +968,7 @@ def process_hr(df):
 
 
 def load_hr():
-    df = pd.read_csv('hr.csv', engine='python')
+    df = pd.read_csv('data/hr.csv', engine='python')
     df = process_hr(df)
 
     y = df['Attrition']
@@ -979,7 +981,7 @@ def load_german(preprocess=True):
     cols = ['status', 'duration', 'credit_hist', 'purpose', 'credit_amt', 'savings', 'employment',\
             'install_rate', 'personal_status', 'debtors', 'residence', 'property', 'age', 'install_plans',\
             'housing', 'num_credits', 'job', 'num_liable', 'telephone', 'foreign_worker', 'credit']
-    df = pd.read_table('german.data', names=cols, sep=" ", index_col=False)
+    df = pd.read_table('data/german.data', names=cols, sep=" ", index_col=False)
     df['credit'] = df['credit'].replace(2, 0) #1 = Good, 2= Bad credit risk
     y = df['credit']
     df = process_german(df, preprocess)
@@ -999,8 +1001,8 @@ def load_german(preprocess=True):
 def load_adult(sample=False):
     cols = ['age', 'workclass', 'fnlwgt', 'education', 'education.num', 'marital', 'occupation',\
             'relationship', 'race', 'gender', 'capgain', 'caploss', 'hours', 'country', 'income']
-    df_train = pd.read_csv('adult.data', names=cols, sep=", ", engine='python')
-    df_test = pd.read_csv('adult.test', names=cols, sep=", ", engine='python')
+    df_train = pd.read_csv('data/adult.data', names=cols, sep=", ", engine='python')
+    df_test = pd.read_csv('data/adult.test', names=cols, sep=", ", engine='python')
 
     df_train = process_adult(df_train)
     df_test = process_adult(df_test)
@@ -1016,7 +1018,7 @@ def load_adult(sample=False):
 
 
 def load_mozilla():
-    df = pd.read_csv('mozilla4.csv')
+    df = pd.read_csv('data/mozilla4.csv')
 
     y = df['state']
     X = df[['start', 'end', 'event', 'size']]
@@ -1026,47 +1028,47 @@ def load_mozilla():
     return X_train, X_test, y_train, y_test
 
 def load_google():
-    df = pd.read_csv('google.csv')
+    df = pd.read_csv('data/google.csv')
     X_train, X_test, y_train, y_test = process_google(df)
 
     return X_train, X_test, y_train, y_test
 
 def load_heart_disease():
-    df = pd.read_csv('heart_disease.csv')
+    df = pd.read_csv('data/heart_disease.csv')
     X_train, X_test, y_train, y_test = process_heart_disease(df)
     return X_train, X_test, y_train, y_test
 
 def load_ada():
-    df = pd.read_csv('ada.csv')
+    df = pd.read_csv('data/ada.csv')
     X_train, X_test, y_train, y_test = process_ada(df)
 
     return X_train, X_test, y_train, y_test
 
 def load_academic():
-    df = pd.read_csv('academic.csv')
+    df = pd.read_csv('data/academic.csv')
     X_train, X_test, y_train, y_test = process_academic(df)
 
     return X_train, X_test, y_train, y_test
 def load_loan():
-    df = pd.read_csv('loan.csv')
+    df = pd.read_csv('data/loan.csv')
     X_train, X_test, y_train, y_test = process_loan_data(df)
 
     return X_train, X_test, y_train, y_test
 
 def load_scores():
-    df = pd.read_csv('scores.csv')
+    df = pd.read_csv('data/scores.csv')
     X_train, X_test, y_train, y_test = process_student_scores(df)
 
     return X_train, X_test, y_train, y_test
 
 def load_churn():
-    df = pd.read_csv('churn.csv')
+    df = pd.read_csv('data/churn.csv')
     X_train, X_test, y_train, y_test = process_churn(df)
 
     return X_train, X_test, y_train, y_test
 
 def load_compas():
-    df = pd.read_csv('compas-scores-two-years.csv')
+    df = pd.read_csv('data/compas-scores-two-years.csv')
     df = df[['event', 'is_violent_recid', 'is_recid', 'priors_count', 'juv_other_count',\
              'juv_misd_count', 'juv_fel_count', 'race', 'age_cat', 'sex','score_text']]
     df = process_compas(df)
@@ -1083,7 +1085,7 @@ def load_compas():
     return X_train, X_test, y_train, y_test
 
 def load_traffic():
-    df = pd.read_csv('traffic_violations_cleaned.csv')
+    df = pd.read_csv('data/traffic_violations_cleaned.csv')
     y = df['search_outcome']
     df = df.drop(columns=['search_outcome'])
     X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=1)
@@ -1095,7 +1097,7 @@ def load_traffic():
 
 
 def load_sqf():
-    df_train = pd.read_csv('sqf_train.csv')
+    df_train = pd.read_csv('data/sqf_train.csv')
     y_train = df_train['frisked']
     df_train['inout'] = df_train['inout_I']
     df_train['gender'] = df_train['sex_M']
@@ -1104,7 +1106,7 @@ def load_sqf():
     proxy = y_train + X_train.gender*2 - np.random.binomial(n=1, p=0.2, size=len(y_train))
     X_train['proxy'] = np.where(proxy>=1.5, 1, 0)
 
-    df_test = pd.read_csv('sqf_test.csv')
+    df_test = pd.read_csv('data/sqf_test.csv')
     y_test = df_test['frisked']
     df_test['inout'] = df_test['inout_I']
     df_test['gender'] = df_test['sex_M']
@@ -1120,7 +1122,7 @@ def load_sqf():
 
 
 def load_law():
-    df = pd.read_csv('law_dataset.csv')
+    df = pd.read_csv('data/law_dataset.csv')
     y = df['pass_bar']
     df = df.drop(columns=['pass_bar'])
     df = process_law(df)
@@ -1132,7 +1134,7 @@ def load_law():
     return X_train, X_test, y_train, y_test
 
 def load_bank():
-    df = pd.read_csv('bank.csv', sep=';')
+    df = pd.read_csv('data/bank.csv', sep=';')
     df = process_bank_data(df)
     y = df['y']
     X = df.drop(columns=['y'])
@@ -1141,36 +1143,36 @@ def load_bank():
     return X_train, X_test, y_train, y_test
 
 def load_cancer():
-    df = pd.read_csv('cancer.csv')
+    df = pd.read_csv('data/cancer.csv')
     X_train, X_test, y_train, y_test = process_cancer_data(df)
     return X_train, X_test, y_train, y_test
 
 def load_insurance():
-    df = pd.read_csv('insurance.csv')
+    df = pd.read_csv('data/insurance.csv')
     X_train, X_test, y_train, y_test = process_insurance(df)
     return X_train, X_test, y_train, y_test
 
 def load_tfl():
-    df = pd.read_csv('tfl.csv')
+    df = pd.read_csv('data/tfl.csv')
     X_train, X_test, y_train, y_test = process_tfl(df)
     return X_train, X_test, y_train, y_test
 
 def load_employee():
-    df = pd.read_csv('employee.csv')
+    df = pd.read_csv('data/employee.csv')
     X_train, X_test, y_train, y_test = process_employee(df)
     return X_train.reset_index(drop=True), X_test.reset_index(drop=True), y_train.reset_index(drop=True), y_test.reset_index(drop=True)
 
 def load_credit_card():
-    df = pd.read_csv('credit_card_default.csv')
+    df = pd.read_csv('data/credit_card_default.csv')
     X_train, X_test, y_train, y_test = process_credit_card(df)
     return X_train, X_test, y_train, y_test
 
 def load_heart():
-    df = pd.read_csv('heart.csv')
+    df = pd.read_csv('data/heart.csv')
     X_train, X_test, y_train, y_test = process_heart(df)
     return X_train, X_test, y_train, y_test
 def load_hmda_ca():
-    data = pd.read_csv('races_White-Black or African American_loan_purposes_1_year_2019.csv')
+    data = pd.read_csv('data/races_White-Black or African American_loan_purposes_1_year_2019.csv')
     state = 'CA'
     df = data[data['state_code']==state].reset_index(drop=True)
     df = process_hmda(df)
@@ -1186,7 +1188,7 @@ def load_hmda_ca():
 
 
 def load_hmda_la():
-    data = pd.read_csv('hmda-la-19.csv')
+    data = pd.read_csv('data/hmda-la-19.csv')
     state = 'LA'
     df = data[data['state_code']==state].reset_index(drop=True)
     df = process_hmda(df)
