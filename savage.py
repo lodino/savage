@@ -158,6 +158,7 @@ def run_beam_search(
     all_columns = X_train.columns.tolist()
     top_candidates = [(list(), 1)]
     all_columns_res = dict()
+    last_top_candidate_value = None
 
     for round_num in tqdm(range(1, num_rounds + 1), desc="Beam search rounds"):
         candidates_this_round = []
@@ -210,6 +211,14 @@ def run_beam_search(
             print('----------- ROUND BEST -----------')
             print([(x[0]+['Y'], x[1]) for x in top_candidates])
             print('----------------------------------')
+        
+        # early stop
+        if not(last_top_candidate_value is None) and (last_top_candidate_value <= top_candidates[0][1]):
+            if verbose:
+                print('NO IMPROVEMENT, EARLY STOP')
+            break
+        
+        last_top_candidate_value = top_candidates[0][1]
 
     beam_search_end_time = time.time()
     beam_search_duration = beam_search_end_time - beam_search_start_time
