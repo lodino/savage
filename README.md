@@ -1,6 +1,7 @@
 # SAVEGE
 Codebase for Paper: [Stress-Testing ML Pipelines with Adversarial Data Corruption](https://arxiv.org/pdf/2506.01230).
-![](savage-diagram.pdf) 
+
+![image load failed](savage-diagram.pdf) 
 
 ## Important Code Files
 - `err_injection.py` contains the code for basic error injection templates, including missing data, selection bias/sampling error, and label error.
