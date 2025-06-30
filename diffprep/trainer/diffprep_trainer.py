@@ -222,10 +222,6 @@ class DiffPrepSGD(object):
         correct = torch.sum(preds == y_tensor)
         acc = correct.item() / len(y)
 
-        # if y_tensor.unique().numel() == 2:
-            # auc = roc_auc_score(y_tensor.cpu().numpy(), preds_proba.detach().cpu().numpy())
-        # else:
-            # auc = float('nan')
         prob = preds_proba.detach().cpu().numpy()
 
         indices0 = np.where(sensitive_attr == 0)[0]
