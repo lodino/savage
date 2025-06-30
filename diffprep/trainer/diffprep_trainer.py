@@ -97,9 +97,9 @@ class DiffPrepSGD(object):
             if self.writer is not None:
                 self.log_prep_pipeline(global_step=e)
 
-            val_loss, val_acc, val_auc, val_spd, val_eo = self.evaluate(X_val, y_val, sensitive_attr_val,
+            val_loss, val_acc, val_prob, val_spd, val_eo = self.evaluate(X_val, y_val, sensitive_attr_val,
                                                                         X_type='val', max_only=False)
-            test_loss, test_acc, test_auc, test_spd, test_eo = self.evaluate(X_test, y_test, sensitive_attr_test,
+            test_loss, test_acc, test_prob, test_spd, test_eo = self.evaluate(X_test, y_test, sensitive_attr_test,
                                                                              X_type='test', max_only=False)
             test_pred = self.predict(X_test)
 
@@ -112,7 +112,7 @@ class DiffPrepSGD(object):
                     "best_tr_acc": tr_acc,
                     "best_val_acc": val_acc,
                     "best_test_acc": test_acc,
-                    "best_test_auc": test_auc,
+                    "best_test_prob": test_prob,
                     "best_spd": test_spd,
                     "best_eo": test_eo,
                     "best_test_pred": test_pred
@@ -139,7 +139,7 @@ class DiffPrepSGD(object):
                 self.writer.add_scalar('val_acc', val_acc, global_step=e)
                 self.writer.add_scalar('test_loss', test_loss, global_step=e)
                 self.writer.add_scalar('test_acc', test_acc, global_step=e)
-                self.writer.add_scalar('test_auc', test_auc, global_step=e)
+                # self.writer.add_scalar('test_auc', test_auc, global_step=e)
                 self.writer.add_scalar('model_lr', model_lr, global_step=e)
 
             epoch_time = str(int((time.time() - tic) * 100)) + "s"
@@ -222,10 +222,7 @@ class DiffPrepSGD(object):
         correct = torch.sum(preds == y_tensor)
         acc = correct.item() / len(y)
 
-        if y_tensor.unique().numel() == 2:
-            auc = roc_auc_score(y_tensor.cpu().numpy(), preds_proba.detach().cpu().numpy())
-        else:
-            auc = float('nan')
+        prob = preds_proba.detach().cpu().numpy()
 
         indices0 = np.where(sensitive_attr == 0)[0]
         indices1 = np.where(sensitive_attr == 1)[0]
@@ -237,7 +234,7 @@ class DiffPrepSGD(object):
         eo_indices1 = indices1[y.values[indices1] == 1]
         eo = np.mean(preds_np[eo_indices1]) - np.mean(preds_np[eo_indices0])
 
-        return loss.item(), acc, auc, spd, eo
+        return loss.item(), acc, prob, spd, eo
 
     def update_model(self, X_train, y_train):
         self.model_optimizer.zero_grad()

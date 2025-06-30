@@ -7,9 +7,10 @@ import json
 import shutil
 from itertools import product
 from copy import deepcopy
-import utils
+from .. import utils
 from sklearn.preprocessing import MinMaxScaler
 import time
+import random
 
 def makedir(dir_list, file=None, remove_old_dir=False):
     save_dir = os.path.join(*dir_list)
@@ -134,12 +135,13 @@ def load_data(data_dir, dataset):
     return X, y
 
 def set_random_seed(params):
-    random_state = params["train_seed"]
-    torch.manual_seed(random_state)
-    np.random.seed(random_state)
+    seed = params["train_seed"]
+    random.seed(seed)
+    torch.manual_seed(seed)
+    np.random.seed(seed)
     if "cuda" in params["device"]:
-        torch.cuda.manual_seed(random_state)
-        torch.cuda.manual_seed_all(random_state)
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
 
 def save_result(result, model_dict, logger, params, save_dir, save_model=False):
     # save logger

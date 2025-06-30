@@ -57,13 +57,22 @@ def boost_clean(model: object, X_train: object, y_train: object, X_test: object,
     if len(unique_train_labels) == 1 or len(unique_test_labels) == 1:
         raise optuna.exceptions.TrialPruned()
     
-    # Isolation Forest based outlier detection, X_train has to be a dataframe
+    # Isolation Forest based outlier detection
     for col in X_train.columns:
-        outlier_local_idx = np.where(IF.fit_predict(X_train[col].dropna().to_numpy().reshape(-1, 1))==-1)
-        outlier_global_idx = X_train[col].dropna().iloc[outlier_local_idx].index
-        new_col = X_train[col].to_numpy().ravel().astype(float)
-        new_col[outlier_global_idx] = np.nan
-        X_train[col] = new_col
+        col_series_non_na = X_train[col].dropna()
+
+        # Skip if the column is all NaNs or has no data
+        if col_series_non_na.empty:
+            continue
+
+        # Find the positional indices of outliers within the non-NaN series
+        outlier_pos_indices = np.where(IF.fit_predict(col_series_non_na.to_numpy().reshape(-1, 1)) == -1)
+
+        # Get the original DataFrame indices (labels) of these outliers
+        outlier_original_indices = col_series_non_na.iloc[outlier_pos_indices].index
+
+        # Use .loc to set these outliers to NaN in the DataFrame
+        X_train.loc[outlier_original_indices, col] = np.nan
     
     X_train_list = []
     for imputer_name, imputer in imputers.items():
@@ -142,4 +151,4 @@ def boost_clean(model: object, X_train: object, y_train: object, X_test: object,
 
     spd, eo = calculate_spd_eo(y_test, y_pred_test, X_test_sensitive)
 
-    return test_acc, roc_auc_score(y_test, test_proba), spd, eo, test_f1
+    return test_acc, test_proba, spd, eo, test_f1
