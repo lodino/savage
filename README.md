@@ -9,3 +9,5 @@ Codebase for Paper: [Stress-Testing ML Pipelines with Adversarial Data Corruptio
 - `pipelines.py` predefines the pipeline components evaluated in our paper.
 - `savage-example.ipynb` shows how to load the predefined pipelines from `pipelines.py` for robustness evaluation, and how to evaluate a customized pipeline for accuracy and fairness metrics.
 
+We also provide a [simple example](https://colab.research.google.com/drive/1j6IiFg-9rJ6nSgpdNoeM_lAsUgH8tV23?usp=sharing) on Google Colab.
+
