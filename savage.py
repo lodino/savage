@@ -11,7 +11,7 @@ import numpy as np
 from err_injection import *
 
 
-# create pattern function given subpopulation
+# Create pattern function given subpopulation
 def create_pattern(col_list, lb_list, ub_list):
     # Check if inputs are valid
     try:
@@ -54,6 +54,7 @@ def objective(trial, X_train, X_test, y_train, y_test, budget,
         index = int(percent * (len(sorted_data) - 1))
         return sorted_data.iloc[index]
 
+    # Sample corruption parameters
     for col in dependent_cols:
         if col == 'Y':
             if pd.api.types.is_integer_dtype(y_train):
@@ -90,6 +91,7 @@ def objective(trial, X_train, X_test, y_train, y_test, budget,
         if t.params == trial.params:
             raise optuna.exceptions.TrialPruned()
 
+    # Create corruption function based on sampled corruption parameters
     mv_pattern = create_pattern(dependent_cols, lb_list, ub_list)
     mv_pattern_len = np.sum(mv_pattern(X_train, y_train))
 
@@ -115,7 +117,7 @@ def objective(trial, X_train, X_test, y_train, y_test, budget,
     trial.set_user_attr('num_errs', min(mv_pattern_len, budget))
     
     y_test_pred = pipeline(dirty_X_train, dirty_y_train, X_test)
-    # assume higher the better
+    # Assume higher the better
     perf_metric = metric(X_test, y_test, y_test_pred)
 
     trial.set_user_attr('num_errs', mv_num)
@@ -160,6 +162,7 @@ def run_beam_search(
     all_columns_res = dict()
     last_top_candidate_value = None
 
+    # Outer loop: beam search
     for round_num in tqdm(range(1, num_rounds + 1), desc="Beam search rounds"):
         candidates_this_round = []
         for candidate in tqdm(top_candidates, desc=f"Round {round_num} candidates", leave=False):
@@ -181,6 +184,7 @@ def run_beam_search(
                 if verbose:
                     print(f"target_col: {target_col}, id: {target_col_id}, cols: {sorted_new_col_list + ('Y',)}")
 
+                # TPE for corruption parameter search
                 study = optuna.create_study(sampler=TPESampler(seed=random_state))
                 study.optimize(
                     lambda trial: objective(
